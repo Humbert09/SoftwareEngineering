@@ -17,8 +17,9 @@ class ComputadoraapiApplicationTests {
 
     @Test
     void insertarComputadora() {
-        Computadora computadora = new Computadora(0, null, "HP", "Pavillion 2000", 13000.0f);
+        Computadora computadora = new Computadora(0, "HP", "Pavillion 2000",null, 13000.0f);
         computadoraRepository.save(computadora); //INSERT INTO
     }
+
 
 }
