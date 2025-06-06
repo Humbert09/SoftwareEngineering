@@ -1,6 +1,8 @@
 package mx.unam.aragon.ico.is.formula1.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -31,9 +33,13 @@ public class Piloto {
         private String descripcion;
 
         @Column(name = "edad", nullable = true)
+        @Max(40)
+        @Min(18)
         private Integer edad;
 
         @Column(name = "numero", nullable = true)
+        @Max(99)
+        @Min(1)
         private Integer numero;
 
         @Column(name = "url_foto", nullable = true, insertable = true, columnDefinition = "VARCHAR(350) DEFAULT 'https://png.pngtree.com/png-vector/20230407/ourmid/pngtree-placeholder-line-icon-vector-png-image_6691835.png'")
