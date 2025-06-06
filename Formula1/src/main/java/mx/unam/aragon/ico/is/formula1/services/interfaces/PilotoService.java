@@ -11,10 +11,10 @@ public interface PilotoService  {
 
     public abstract Iterable<Piloto> findAll();
 
-    public abstract Optional<Piloto> findById(long id);
+    public abstract Optional<Piloto> findById(Integer id);
 
-    public abstract Piloto update(Long id, Piloto piloto);
+    public abstract Piloto update(Integer id, Piloto piloto);
 
-    public abstract Piloto delete(long id);
+    public abstract Piloto delete(Integer id);
 }
 

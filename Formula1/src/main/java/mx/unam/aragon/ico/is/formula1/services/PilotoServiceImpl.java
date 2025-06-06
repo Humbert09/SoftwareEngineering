@@ -1,5 +1,6 @@
 package mx.unam.aragon.ico.is.formula1.services;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import mx.unam.aragon.ico.is.formula1.entities.Piloto;
 import mx.unam.aragon.ico.is.formula1.repositories.PilotoRepository;
 import mx.unam.aragon.ico.is.formula1.services.interfaces.PilotoService;
@@ -25,12 +26,12 @@ public class PilotoServiceImpl implements PilotoService {
     }
 
     @Override
-    public Optional<Piloto> findById(long id) {
+    public Optional<Piloto> findById(Integer id) {
         return pilotoRepository.findById(id);
     }
 
     @Override
-    public Piloto update(Long id, Piloto piloto) {
+    public Piloto update(Integer id, Piloto piloto) {
         Optional<Piloto> oldPiloto =
                 pilotoRepository.findById(id);
         if (oldPiloto.isPresent()) {
@@ -49,7 +50,8 @@ public class PilotoServiceImpl implements PilotoService {
     }
 
     @Override
-    public Piloto delete(long id) {
-        return pilotoRepository.deletePilotoById(id);
+    public Piloto delete(Integer id) {
+        return null;
     }
+
 }

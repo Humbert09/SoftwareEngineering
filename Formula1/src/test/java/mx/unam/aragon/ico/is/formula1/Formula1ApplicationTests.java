@@ -27,20 +27,20 @@ class Formula1ApplicationTests {
 
     @Test
     void verPiloto() {
-        Long idTmp = 1L;
+        Integer idTmp = 1;
         Piloto tmp = pilotoRepository.findPilotoById(idTmp);
         System.out.println(tmp);
     }
 
     @Test
     void eliminarPiloto() {
-        Long idTmp = 1L;
+        Integer idTmp = 1;
         pilotoRepository.deleteById(idTmp);
     }
 
     @Test
     void actualizarPiloto() {
-        Long idTmp = 2L;
+        Integer idTmp = 2;
         Piloto tmp = pilotoRepository.findPilotoById(idTmp);
         tmp.setNombre("Pato Oward");
         pilotoRepository.save(tmp);

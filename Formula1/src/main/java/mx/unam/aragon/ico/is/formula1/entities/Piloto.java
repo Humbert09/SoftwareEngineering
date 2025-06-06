@@ -1,6 +1,8 @@
 package mx.unam.aragon.ico.is.formula1.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 
@@ -10,24 +12,37 @@ public class Piloto {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-        @Column(name = "nombre_piloto", nullable = false, length = 100)
+        private Integer id;
+
+        @Column(name = "nombre_piloto", length = 100)
+        @NotBlank(message = "El campo no puede estar en blanco")
+        @NotNull(message = "No puede ser nulo")
         private String nombre;
-        @Column(name = "equipo", nullable = false, length = 50)
+
+        @Column(name = "equipo", length = 50)
+        @NotBlank(message = "El campo no puede estar en blanco")
+        @NotNull(message = "No puede ser nulo")
         private String equipo;
-        @Column(name = "descripcion", nullable = false, length = 450)
+
+
+        @Column(name = "descripcion", length = 450)
+        @NotBlank(message = "El campo no puede estar en blanco")
+        @NotNull(message = "No puede ser nulo")
         private String descripcion;
+
         @Column(name = "edad", nullable = true)
         private Integer edad;
+
         @Column(name = "numero", nullable = true)
         private Integer numero;
+
         @Column(name = "url_foto", nullable = true, insertable = true, columnDefinition = "VARCHAR(350) DEFAULT 'https://png.pngtree.com/png-vector/20230407/ourmid/pngtree-placeholder-line-icon-vector-png-image_6691835.png'")
         private String imagen;
 
     public Piloto() {
     }
 
-    public Piloto(Long id, String nombre, String equipo, String descripcion, Integer numero, Integer edad, String imagen) {
+    public Piloto(Integer id, String nombre, String equipo, String descripcion, Integer numero, Integer edad, String imagen) {
         this.id = id;
         this.nombre = nombre;
         this.equipo = equipo;
@@ -37,11 +52,11 @@ public class Piloto {
         this.imagen = imagen;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
